@@ -1,0 +1,260 @@
+<!-- Mohammad Salem تحياتي -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>🎂 كل سنه وانت طيب ياخويا</title>
+<link rel="icon" type="image/png" href="https://c.top4top.io/p_3691430cr1.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html,body{
+  margin:0;
+  padding:0;
+  background:black;
+  color:#00ff00;
+  font-family:monospace;
+  overflow:hidden;
+  height:100%;
+}
+
+canvas{
+  position:fixed;
+  inset:0;
+}
+
+#countdown{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-size:clamp(70px, 20vw, 140px);
+  text-shadow:0 0 25px #00ff00;
+  z-index:10;
+}
+
+#terminal{
+  position:fixed;
+  inset:0;
+  padding:clamp(15px, 4vw, 30px);
+  display:none;
+  font-size:clamp(14px, 4vw, 20px);
+  white-space:pre-line;
+  z-index:15;
+}
+
+.cursor::after{
+  content:"_";
+  animation:blink 1s infinite;
+}
+@keyframes blink{50%{opacity:0}}
+
+.glitch{
+  position:relative;
+  display:inline-block;
+  font-weight:bold;
+}
+.glitch::before,.glitch::after{
+  content:attr(data-text);
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  opacity:.85;
+}
+.glitch::before{
+  color:#00ffff;
+  transform:translate(-2px,-1px);
+  clip-path:inset(0 0 60% 0);
+}
+.glitch::after{
+  color:#ff00ff;
+  transform:translate(2px,1px);
+  clip-path:inset(60% 0 0 0);
+}
+
+#shatter{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:17;
+  font-size:clamp(50px, 18vw, 110px);
+  font-weight:900;
+}
+
+.piece{
+  position:absolute;
+  color:#00ff00;
+  text-shadow:0 0 20px #00ff00;
+  animation:fly .9s forwards;
+}
+
+@keyframes fly{
+  to{
+    transform:translate(var(--x),var(--y)) rotate(var(--r));
+    opacity:0;
+  }
+}
+
+.rebuild{
+  animation:rebuild .9s forwards;
+}
+@keyframes rebuild{
+  from{
+    transform:translate(var(--x),var(--y)) rotate(var(--r));
+    opacity:0;
+  }
+  to{
+    transform:translate(0,0) rotate(0);
+    opacity:1;
+  }
+}
+
+#access{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-size:clamp(40px, 15vw, 90px);
+  text-shadow:0 0 30px #00ff00;
+  animation:shake .25s infinite;
+  z-index:18;
+}
+
+@keyframes shake{
+  0%{transform:translate(0)}
+  25%{transform:translate(3px,-3px)}
+  50%{transform:translate(-3px,3px)}
+  75%{transform:translate(2px,-2px)}
+}
+
+#imageBox{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:20;
+}
+#imageBox img{
+  max-width:90%;
+  max-height:90%;
+  box-shadow:0 0 40px #00ff00;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+<div id="countdown">3</div>
+<div id="terminal"><span class="cursor"></span></div>
+<div id="shatter"></div>
+<div id="access">ACCESS GRANTED</div>
+<div id="imageBox">
+  <img src="https://c.top4top.io/p_3691430cr1.png">
+</div>
+
+<script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool@0.3.7"></script>
+
+<script>
+const AC=new (window.AudioContext||window.webkitAudioContext)();
+function mechKey(){
+  let o=AC.createOscillator(), g=AC.createGain();
+  o.type="square"; o.frequency.value=1000+Math.random()*300;
+  g.gain.value=0.04; o.connect(g).connect(AC.destination);
+  o.start(); o.stop(AC.currentTime+.02);
+}
+function alarm(){for(let i=0;i<4;i++)setTimeout(mechKey,i*120);}
+
+/* Mohammad Salem */
+const cv=document.getElementById("matrix"), cx=cv.getContext("2d");
+function resize(){cv.width=innerWidth;cv.height=innerHeight}
+resize(); onresize=resize;
+
+const chars="DeshaSasa", sz=16;
+const drops=Array(Math.floor(cv.width/sz)).fill(1);
+const mInt=setInterval(()=>{
+  cx.fillStyle="rgba(0,0,0,.05)";
+  cx.fillRect(0,0,cv.width,cv.height);
+  cx.fillStyle="#00ff00";
+  cx.font=sz+"px monospace";
+  drops.forEach((y,i)=>{
+    cx.fillText(chars[Math.random()*chars.length|0], i*sz, y*sz);
+    if(y*sz>cv.height && Math.random()>.975)drops[i]=0;
+    drops[i]++;
+  });
+},33);
+
+const cd=document.getElementById("countdown");
+let c=3;
+setTimeout(()=>{
+  cd.style.display="flex";
+  const t=setInterval(()=>{
+    mechKey(); cd.textContent=c--;
+    if(c<0){clearInterval(t);cd.style.display="none";startTerminal();}
+  },1000);
+},4000);
+
+const name="Sasa";
+const term=document.getElementById("terminal");
+const lines=[
+"> Initializing system...",
+"> Target identified: {{NAME}}",
+"> Bypassing firewall...",
+"> Accessing birthday protocol...",
+"> Happy Birthday {{NAME}} 🎂",
+"> 🎂🥳 كل سنه وانت طيب ياخويا"
+];
+let L=0,CH=0;
+
+function startTerminal(){term.style.display="block";type();}
+function type(){
+  if(L<lines.length){
+    let txt=lines[L].replace(/{{NAME}}/g,name);
+    if(CH<txt.length){
+      term.innerHTML+=txt[CH++];
+      mechKey(); setTimeout(type,30);
+    }else{
+      term.innerHTML+="\n";L++;CH=0;setTimeout(type,300);
+    }
+  }else setTimeout(shatterName,700);
+}
+
+function shatterName(){
+  term.style.display="none";
+  const sh=document.getElementById("shatter");
+  sh.style.display="flex";
+  sh.innerHTML="";
+  [...name].forEach(ch=>{
+    const s=document.createElement("span");
+    s.className="piece";
+    s.textContent=ch;
+    s.style.setProperty("--x",(Math.random()*400-200)+"px");
+    s.style.setProperty("--y",(Math.random()*300-150)+"px");
+    s.style.setProperty("--r",(Math.random()*90-45)+"deg");
+    sh.appendChild(s);
+  });
+  alarm();
+  setTimeout(showAccess,1200);
+}
+
+function showAccess(){
+  document.getElementById("shatter").style.display="none";
+  const a=document.getElementById("access");
+  a.style.display="flex";
+  alarm();
+  setTimeout(()=>{
+    clearInterval(mInt);
+    a.style.display="none";
+    document.getElementById("imageBox").style.display="flex";
+  },1600);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>M E D O00OooooO00O</title>
+
+<style>
+/* Mohammad Salem – تحياتي */
+
+:root {
+	--cake-color: #F8CA8E;
+	--icing-color: #F000A0;
+	--icing-highlight: #F7B7C0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	margin: 0;
+	background: #4f6cb1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-family: Arial, sans-serif;
+}
+
+h1, h4 {
+	color: pink;
+	text-align: center;
+	margin: 0;
+}
+
+h1 {
+	font-size: 22px;
+	margin-bottom: 6px;
+}
+
+h4 {
+	font-size: 14px;
+}
+
+/* الكيكة */
+.box-canvas {
+	position: relative;
+	margin-top: 20px;
+	width: 150px;
+	height: 170px;
+	cursor: pointer;
+}
+
+.plate {
+	position: absolute;
+	bottom: 15px;
+	width: 175px;
+	height: 90px;
+	background: #BFBFBF;
+	border-radius: 50%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.cake-side {
+	position: absolute;
+	top: 55px;
+	width: 150px;
+	height: 90px;
+	background: var(--cake-color);
+	border-radius: 0 0 50% 50%;
+	overflow: hidden;
+}
+
+.cake-side::before {
+	content: "";
+	position: absolute;
+	width: 150px;
+	height: 90px;
+	background: white;
+	border-radius: 0 0 50% 50%;
+	top: -20px;
+}
+
+.cake-side::after {
+	content: "";
+	position: absolute;
+	width: 150px;
+	height: 90px;
+	background: var(--cake-color);
+	border-radius: 0 0 50% 50%;
+	top: -30px;
+}
+
+.cake-top {
+	position: absolute;
+	top: 20px;
+	width: 150px;
+	height: 75px;
+	background: var(--icing-color);
+	border-radius: 50%;
+	border-bottom: 4px solid var(--icing-highlight);
+}
+
+.drips {
+	position: absolute;
+	display: flex;
+	width: 150px;
+	height: 70px;
+	top: 55px;
+}
+
+.drip {
+	background: var(--icing-color);
+	border-radius: 0 0 50% 50% / 0 0 20% 20%;
+}
+
+.drip:nth-child(1){height:50px;width:20px;}
+.drip:nth-child(2){height:50px;width:15px;}
+.drip:nth-child(3){height:50px;width:20px;}
+.drip:nth-child(4){height:60px;width:25px;}
+.drip:nth-child(5){height:65px;width:25px;}
+.drip:nth-child(6){height:50px;width:20px;}
+.drip:nth-child(7){height:60px;width:15px;}
+.drip:nth-child(8){height:35px;width:10px;}
+
+.candle {
+	position: absolute;
+	left: 50%;
+	top: 10px;
+	transform: translateX(-50%);
+	width: 8px;
+	height: 50px;
+	background: repeating-linear-gradient(
+		45deg,
+		white,
+		white 4px,
+		#F96B6B 4px,
+		#F96B6B 6px
+	);
+	border-radius: 10% 10% 20% 20%;
+}
+
+.candle::after {
+	content: "";
+	position: absolute;
+	top: -5px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 1px;
+	height: 5px;
+	background: black;
+}
+
+.flame {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: -12px;
+	height: 10px;
+	width: 10px;
+	background: #F78F4E;
+	border-radius: 50%;
+	border: 2px solid yellow;
+	animation: flicker 0.2s infinite alternate;
+}
+
+@keyframes flicker {
+	from { transform: translateX(-50%) scale(1); }
+	to { transform: translateX(-50%) scale(1.1); }
+}
+
+.flame::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 10px solid yellow;
+}
+
+.flame::after {
+	content: "";
+	position: absolute;
+	top: -6px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 10px solid #F78F4E;
+}
+
+@media (max-width: 600px) {
+	.box-canvas {
+		transform: scale(0.85);
+	}
+	h1 { font-size: 18px; }
+	h4 { font-size: 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎂🥳 كل سنه وانت طيب ياخويا</h1>
+<h4><mark>😶‍🌫️ دوس ع الشمعة</mark></h4>
+
+<a href="sasa.html">
+	<div class="box-canvas">
+		<div class="plate"></div>
+		<div class="cake-side"></div>
+		<div class="drips">
+			<div class="drip"></div><div class="drip"></div><div class="drip"></div>
+			<div class="drip"></div><div class="drip"></div><div class="drip"></div>
+			<div class="drip"></div><div class="drip"></div>
+		</div>
+		<div class="cake-top"></div>
+		<div class="candle">
+			<div class="flame"></div>
+		</div>
+	</div>
+</a>
+
+</body>
+</html>
