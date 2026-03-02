@@ -1,226 +1,192 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nooooooooooor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;600;700&family=Dancing+Script:wght@700&family=Amiri:ital,wght@1,400&display=swap');
 
-<title>M E D O00OooooO00O</title>
+        :root {
+            --soft-pink: #fffafa;
+            --rose-gold: #d4a373;
+            --warm-pink: #e5b3b3;
+            --text-color: #4a3f3f;
+        }
 
-<style>
-/* Mohammad Salem – تحياتي */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--soft-pink);
+            color: var(--text-color);
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+            text-align: center;
+        }
 
-:root {
-	--cake-color: #F8CA8E;
-	--icing-color: #F000A0;
-	--icing-highlight: #F7B7C0;
-}
+        .petals {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
 
-* {
-	box-sizing: border-box;
-}
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            padding: 40px 0;
+            background: radial-gradient(circle, rgb(223 109 109 / 90%) 0%, rgba(255, 250, 250, 0.5) 100%);
+        }
 
-body {
-	height: 100vh;
-	margin: 0;
-	background: #4f6cb1;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	font-family: Arial, sans-serif;
-}
+        .flower-frame {
+            border: 1px solid var(--warm-pink);
+            padding: 50px 20px; 
+            margin: 10px; 
+            background: white;
+            box-shadow: 0 15px 35px rgba(229, 179, 179, 0.2);
+            max-width: 800px;
+            border-radius: 50px 50px 5px 5px; 
+            animation: slideUp 1.5s ease-out;
+            box-sizing: border-box; 
+        }
 
-h1, h4 {
-	color: pink;
-	text-align: center;
-	margin: 0;
-}
+        .photo-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--soft-pink);
+            outline: 2px solid var(--warm-pink);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin: 0 auto 30px;
+            background: url('https://e.top4top.io/p_3713cyryf1.jpg') center/cover; 
+        }
 
-h1 {
-	font-size: 22px;
-	margin-bottom: 6px;
-}
+        .english-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--warm-pink);
+            margin-bottom: 5px;
+        }
 
-h4 {
-	font-size: 14px;
-}
+        h1 {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            color: var(--text-color);
+            margin-top: 10px;
+        }
 
-/* الكيكة */
-.box-canvas {
-	position: relative;
-	margin-top: 20px;
-	width: 150px;
-	height: 170px;
-	cursor: pointer;
-}
+        .message {
+            font-size: 1.25rem;
+            max-width: 90%;
+            margin: 30px auto;
+            line-height: 1.9;
+            color: #555;
+            text-align: justify;
+            text-align-last: center;
+        }
 
-.plate {
-	position: absolute;
-	bottom: 15px;
-	width: 175px;
-	height: 90px;
-	background: #BFBFBF;
-	border-radius: 50%;
-	left: 50%;
-	transform: translateX(-50%);
-}
+        .highlight {
+            color: var(--warm-pink);
+            font-weight: 700;
+        }
 
-.cake-side {
-	position: absolute;
-	top: 55px;
-	width: 150px;
-	height: 90px;
-	background: var(--cake-color);
-	border-radius: 0 0 50% 50%;
-	overflow: hidden;
-}
+        .gallery-section {
+            padding: 80px 20px;
+            background: white;
+        }
 
-.cake-side::before {
-	content: "";
-	position: absolute;
-	width: 150px;
-	height: 90px;
-	background: white;
-	border-radius: 0 0 50% 50%;
-	top: -20px;
-}
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-.cake-side::after {
-	content: "";
-	position: absolute;
-	width: 150px;
-	height: 90px;
-	background: var(--cake-color);
-	border-radius: 0 0 50% 50%;
-	top: -30px;
-}
+        .gallery-item {
+            height: 250px;
+            background: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+        }
 
-.cake-top {
-	position: absolute;
-	top: 20px;
-	width: 150px;
-	height: 75px;
-	background: var(--icing-color);
-	border-radius: 50%;
-	border-bottom: 4px solid var(--icing-highlight);
-}
+        footer {
+            background-color: #2d2d2d;
+            color: #d1d1d1;
+            padding: 60px 20px;
+            margin-top: 50px;
+        }
 
-.drips {
-	position: absolute;
-	display: flex;
-	width: 150px;
-	height: 70px;
-	top: 55px;
-}
+        .footer-heart {
+            color: var(--warm-pink);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
 
-.drip {
-	background: var(--icing-color);
-	border-radius: 0 0 50% 50% / 0 0 20% 20%;
-}
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.drip:nth-child(1){height:50px;width:20px;}
-.drip:nth-child(2){height:50px;width:15px;}
-.drip:nth-child(3){height:50px;width:20px;}
-.drip:nth-child(4){height:60px;width:25px;}
-.drip:nth-child(5){height:65px;width:25px;}
-.drip:nth-child(6){height:50px;width:20px;}
-.drip:nth-child(7){height:60px;width:15px;}
-.drip:nth-child(8){height:35px;width:10px;}
-
-.candle {
-	position: absolute;
-	left: 50%;
-	top: 10px;
-	transform: translateX(-50%);
-	width: 8px;
-	height: 50px;
-	background: repeating-linear-gradient(
-		45deg,
-		white,
-		white 4px,
-		#F96B6B 4px,
-		#F96B6B 6px
-	);
-	border-radius: 10% 10% 20% 20%;
-}
-
-.candle::after {
-	content: "";
-	position: absolute;
-	top: -5px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 1px;
-	height: 5px;
-	background: black;
-}
-
-.flame {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: -12px;
-	height: 10px;
-	width: 10px;
-	background: #F78F4E;
-	border-radius: 50%;
-	border: 2px solid yellow;
-	animation: flicker 0.2s infinite alternate;
-}
-
-@keyframes flicker {
-	from { transform: translateX(-50%) scale(1); }
-	to { transform: translateX(-50%) scale(1.1); }
-}
-
-.flame::before {
-	content: "";
-	position: absolute;
-	top: -10px;
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-bottom: 10px solid yellow;
-}
-
-.flame::after {
-	content: "";
-	position: absolute;
-	top: -6px;
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-bottom: 10px solid #F78F4E;
-}
-
-@media (max-width: 600px) {
-	.box-canvas {
-		transform: scale(0.85);
-	}
-	h1 { font-size: 18px; }
-	h4 { font-size: 12px; }
-}
-</style>
+        @media (max-width: 768px) {
+            .flower-frame {
+                border-radius: 30px 30px 5px 5px; 
+                padding: 40px 15px;
+            }
+            .photo-placeholder {
+                width: 150px; 
+                height: 150px;
+            }
+            h1 { font-size: 2rem; }
+            .message { 
+                font-size: 1.1rem; 
+                line-height: 1.7; 
+                margin: 20px auto; 
+            }
+            .english-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<h1>🎂🥳 كل سنه وانت طيبه ياحجه</h1>
-<h4><mark>😶‍🌫️ دوسي ع الشمعة</mark></h4>
+    <section class="hero">
+        <div class="flower-frame">
+            <div class="photo-placeholder"></div>
+            <div class="english-title">Happy Birthday, Roro</div>
+            <h1>كل سنة وأنتِ طيبة وبخير ❤️</h1>
+            
+            <p class="message">
+                مش عايز أكتب كلام محفوظ، عايز أقولك إن <span class="highlight">وجودك في حياتي</span> فرق معايا بجد. <br>
+                في وسط ضحكنا، وهزارنا، وتفاصيل أيامنا.. بقيتي جزء ثابت ومهم، روح بتضيف للوقت طعم تاني. <br><br>
+                
+                أتمنى السنة دي تكون <span class="highlight">أخف على قلبك</span>، وأحن عليكي، وتمشي فيها وإنتي مطمنة ومبتسمة.. 
+                كل سنة وأنتِ أهدى، وأقوى، وأسعد، ومحققة كل حاجة نفسك فيها. <br><br>
+                
+                وأيًا كان إحنا ايه، فأنا ممتن جداً إنك في حياتي، ومبسوط إني بشاركك يوم مميز زي ده.
+            </p>
+            
+            <div style="font-family: 'Dancing Script'; font-size: 1.5rem; color: var(--warm-pink);">With all my appreciation</div>
+        </div>
+    </section>
 
-<a href="dead.html">
-	<div class="box-canvas">
-		<div class="plate"></div>
-		<div class="cake-side"></div>
-		<div class="drips">
-			<div class="drip"></div><div class="drip"></div><div class="drip"></div>
-			<div class="drip"></div><div class="drip"></div><div class="drip"></div>
-			<div class="drip"></div><div class="drip"></div>
-		</div>
-		<div class="cake-top"></div>
-		<div class="candle">
-			<div class="flame"></div>
-		</div>
-	</div>
-</a>
+    <footer>
+        <div class="footer-heart">❤</div>
+        <h3 style="color: white; font-family: 'Amiri'; letter-spacing: 2px;">Happy Birthday NOOR</h3>
+        <div style="margin-top: 30px; border-top: 1px solid #444; padding-top:20px; font-size: 0.7rem; color: #777;">
+            &copy; 2026 | Made by : Mohammad Salem || For : Noor
+        </div>
+    </footer>
 
 </body>
 </html>
